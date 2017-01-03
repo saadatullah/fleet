@@ -1,0 +1,23 @@
+{% load static %}
+{% if registeted_veh_list %}
+<link rel="stylesheet" type="text/css" href="{% static 'vehicles/style.css' %}" />
+ 
+    <table>
+    <th>Reg No</th>
+    <th>Make</th>
+    <th>Model</th>
+    {% for vehicles in registeted_veh_list %}      
+        <tr>
+        
+        <td><li><a href="/vehicles/{{ vehicles.Veh_Reg_No }}/">{{ vehicle.Reg_No }}</a></li></td>
+        <td>{{ vehicles.Veh_Make }}</td>
+        <td>{{ vehicles.Veh_Model }}</td>
+        
+        </tr>
+    {% endfor %}
+    
+    </table>
+    
+{% else %}
+    <p>No Vehicles are available.</p>
+{% endif %}
